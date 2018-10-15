@@ -1,0 +1,12 @@
+lib/
+www/
+*~
+*.log
+*.tmp
+*.tmp.*
+log.txt
+/coverage
+# editors
+.vscode/
+# generated npm folders
+node_modules/

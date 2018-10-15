@@ -1,0 +1,32 @@
+{
+  "name": "htdocs",
+  "version": "1.0.0",
+  "description": "Experimenting with radijs",
+  "main": "index.js",
+  "scripts": {
+    "babel-node": "babel-node --presets=/*a*/ --ignore='foo|bar|baz'",
+    "dev": "nodemon --exec npm run babel-node -- src/index.js",
+    "webpack": "webpack --watch --progress",
+    "start": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mark Samios",
+  "license": "GNU",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-loader": "^8.0.4",
+    "nodemon": "^1.18.4",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "radi": "^0.4.2"
+  }
+}
