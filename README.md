@@ -1,5 +1,7 @@
 # Experimenting with radi.js
+
 [radi-js](https://radi.js.org)
+
 My objective for this repository is to test and evaluate RadiJS, therefore I had to setup a basic server side environment and convert some of the older radijs samples because not many examples were working with the latest core changes.
 
 - Setup environment, Babel, Webpack
