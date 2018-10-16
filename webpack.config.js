@@ -1,10 +1,14 @@
 const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const distPath = './www';
+const distAbsPath = path.resolve(__dirname, distPath);
 
+console.log('path is', distPath);
 module.exports = {
   mode: 'development',
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "www"),
+    path: distAbsPath,
     filename: "bundle.js"
   },
   devtool: 'inline-source-map',
@@ -13,6 +17,20 @@ module.exports = {
     aggregateTimeout: 500,
     poll: 1000
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: 'src/index.html',
+        to: 'index.html',
+        toType: 'file'
+      },
+      {
+        from: 'src/assets',
+        to: 'assets',
+        toType: 'dir'
+      }
+    ])
+  ],
   module: {
     rules: [
       {
