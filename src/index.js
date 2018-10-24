@@ -1,5 +1,6 @@
 import { r, l, action, mount, Component } from 'radi';
 
+/** @jsx Radi.r **/
 class Counter extends Component {
   state() {
     return {
@@ -20,25 +21,26 @@ class Counter extends Component {
   }
 
   view() {
-    return r('div', {},
-      r('button', {
-        class: 'btn primary',
-        disabled: l(this, 'count').process(() => this.state.count <= 0),
-        onclick: () => {
-          return this.down();
-        }},
-        '-'
-      ),
-      r('button', {
-        class: 'btn',
-        onclick: () => {
-          console.log(this.state.count, l(this, 'count').processValue);
-
-          return this.up();
-        }
-      }, '+'),
-      r('h1', {}, l(this, 'count') )
-    );
+    return () =>
+      <div>
+        <h1>Counter: { l(this, 'count') } </h1>
+        <button
+          class="btn primary"
+          disabled={ l(this, 'count').process(() => {
+            return this.state.count <= 0;
+          })}
+          onclick={ () => this.down() }
+        >
+        -
+        </button>
+        <button
+          class="btn"
+          onclick={ () => this.up() }
+        >
+        +
+        </button>
+      </div>
+    ;
   }
 }
-mount(new Counter(), 'app');
+mount(<Counter />, 'app');

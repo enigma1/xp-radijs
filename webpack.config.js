@@ -41,8 +41,16 @@ module.exports = {
           options: {
             presets: ['@babel/preset-env'],
             plugins: [
+              require('@babel/plugin-transform-react-jsx', {
+                "pragma": "dom", // default pragma is React.createElement
+                "pragmaFrag": "DomFrag", // default is React.Fragment
+                "throwIfNamespace": false // defaults to true
+              }),
+              //require('@babel/plugin-syntax-jsx'),
               ["@babel/plugin-proposal-decorators", { "legacy": true }],
-              require('@babel/plugin-proposal-object-rest-spread')
+              ["@babel/plugin-proposal-class-properties", {"loose": true}],
+              require('@babel/plugin-proposal-object-rest-spread'),
+              require('babel-plugin-transform-radi-listen')
             ]
           }
         }
